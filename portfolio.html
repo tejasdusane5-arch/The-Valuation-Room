@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Portfolio | The Valuation Room</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#F8F3E1;
+color:#41431B;
+}
+
+/* NAVBAR */
+
+nav{
+background:#41431B;
+padding:18px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav h1{
+color:#E3DBBB;
+margin:0;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+margin:0;
+}
+
+nav ul li a{
+color:#E3DBBB;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+padding:80px 20px;
+}
+
+.header h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* SUMMARY BOX */
+
+.summary{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+flex-wrap:wrap;
+}
+
+.box{
+background:#E3DBBB;
+padding:25px;
+border-radius:10px;
+text-align:center;
+width:200px;
+}
+
+.box h3{
+margin:0;
+}
+
+.value{
+font-size:20px;
+font-weight:bold;
+margin-top:10px;
+}
+
+/* TABLE */
+
+.container{
+padding:40px 80px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#E3DBBB;
+border-radius:10px;
+overflow:hidden;
+}
+
+th, td{
+padding:15px;
+text-align:center;
+}
+
+th{
+background:#AEB784;
+}
+
+tr:nth-child(even){
+background:#f0e9cf;
+}
+
+.green{
+color:green;
+}
+
+.red{
+color:red;
+}
+
+/* FOOTER */
+
+footer{
+background:#41431B;
+color:#E3DBBB;
+text-align:center;
+padding:20px;
+margin-top:60px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.container{
+padding:20px;
+}
+
+table{
+font-size:12px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h1>The Valuation Room</h1>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="news.html">Market News</a></li>
+<li><a href="ideas.html">Investing Ideas</a></li>
+<li><a href="updates.html">Stock Updates</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+</ul>
+
+</nav>
+
+<section class="header">
+
+<h2>Portfolio Dashboard</h2>
+<p>Track your investments and performance.</p>
+
+</section>
+
+<section class="summary">
+
+<div class="box">
+<h3>Total Investment</h3>
+<p class="value">₹5,00,000</p>
+</div>
+
+<div class="box">
+<h3>Current Value</h3>
+<p class="value">₹5,75,000</p>
+</div>
+
+<div class="box">
+<h3>Total Profit</h3>
+<p class="value green">+₹75,000</p>
+</div>
+
+</section>
+
+<section class="container">
+
+<table>
+
+<tr>
+<th>Stock</th>
+<th>Quantity</th>
+<th>Buy Price</th>
+<th>Current Price</th>
+<th>Profit/Loss</th>
+</tr>
+
+<tr>
+<td>Reliance</td>
+<td>50</td>
+<td>₹2,500</td>
+<td>₹2,850</td>
+<td class="green">+₹17,500</td>
+</tr>
+
+<tr>
+<td>TCS</td>
+<td>20</td>
+<td>₹4,000</td>
+<td>₹3,900</td>
+<td class="red">-₹2,000</td>
+</tr>
+
+<tr>
+<td>HDFC Bank</td>
+<td>30</td>
+<td>₹1,500</td>
+<td>₹1,650</td>
+<td class="green">+₹4,500</td>
+</tr>
+
+<tr>
+<td>Infosys</td>
+<td>25</td>
+<td>₹1,400</td>
+<td>₹1,520</td>
+<td class="green">+₹3,000</td>
+</tr>
+
+</table>
+
+</section>
+
+<footer>
+
+<p>© 2026 The Valuation Room</p>
+
+</footer>
+
+</body>
+
+</html>
