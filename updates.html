@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Stock Updates | The Valuation Room</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#F8F3E1;
+color:#41431B;
+}
+
+/* NAVBAR */
+
+nav{
+background:#41431B;
+padding:18px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav h1{
+color:#E3DBBB;
+margin:0;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+margin:0;
+}
+
+nav ul li a{
+color:#E3DBBB;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+padding:80px 20px;
+}
+
+.header h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* STOCK GRID */
+
+.container{
+padding:40px 80px;
+}
+
+.stock-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.stock-card{
+background:#E3DBBB;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.stock-card:hover{
+background:#AEB784;
+transform:translateY(-6px);
+}
+
+.stock-card h3{
+margin-top:0;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+}
+
+.green{
+color:green;
+}
+
+.red{
+color:red;
+}
+
+/* FOOTER */
+
+footer{
+background:#41431B;
+color:#E3DBBB;
+text-align:center;
+padding:20px;
+margin-top:60px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.stock-grid{
+grid-template-columns:1fr;
+}
+
+.container{
+padding:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h1>The Valuation Room</h1>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="news.html">Market News</a></li>
+<li><a href="ideas.html">Investing Ideas</a></li>
+<li><a href="updates.html">Stock Updates</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+</ul>
+
+</nav>
+
+<section class="header">
+
+<h2>Stock Market Updates</h2>
+<p>Track latest stock prices and daily market movements.</p>
+
+</section>
+
+<section class="container">
+
+<div class="stock-grid">
+
+<div class="stock-card">
+<h3>Reliance Industries</h3>
+<p class="price">₹2,850 <span class="green">+1.2%</span></p>
+<p>Strong buying seen after positive quarterly outlook.</p>
+</div>
+
+<div class="stock-card">
+<h3>TCS</h3>
+<p class="price">₹3,900 <span class="red">-0.5%</span></p>
+<p>Minor correction after recent rally in IT stocks.</p>
+</div>
+
+<div class="stock-card">
+<h3>HDFC Bank</h3>
+<p class="price">₹1,650 <span class="green">+0.8%</span></p>
+<p>Banking sector showing steady growth momentum.</p>
+</div>
+
+<div class="stock-card">
+<h3>Infosys</h3>
+<p class="price">₹1,520 <span class="green">+1.5%</span></p>
+<p>IT stocks gain due to strong global demand.</p>
+</div>
+
+<div class="stock-card">
+<h3>Adani Enterprises</h3>
+<p class="price">₹3,100 <span class="red">-1.1%</span></p>
+<p>Profit booking seen after sharp rally.</p>
+</div>
+
+<div class="stock-card">
+<h3>ICICI Bank</h3>
+<p class="price">₹1,020 <span class="green">+0.9%</span></p>
+<p>Private banks continue to outperform.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 The Valuation Room</p>
+
+</footer>
+
+</body>
+
+</html>
