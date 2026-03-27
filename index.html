@@ -3,210 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Valuation Room</title>
+<title>The Valuation Room Pro</title>
 
-<!-- AOS Animation -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f3e7;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: white;
 }
 
 /* NAVBAR */
 nav {
-  position: sticky;
-  top: 0;
-  background: #1f2d16;
-  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
-  color: white;
-  z-index: 1000;
+  padding: 15px 40px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
 }
 
 nav h1 {
-  margin: 0;
-}
-
-nav ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-nav ul li {
-  cursor: pointer;
+  color: #22c55e;
 }
 
 /* HERO */
 .hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 80px;
-  background: linear-gradient(-45deg, #1f2d16, #3a4d2b, #2b3a1f);
-  background-size: 400% 400%;
-  animation: gradientMove 10s ease infinite;
-  color: white;
+  padding: 60px;
+  text-align: center;
 }
 
-.hero img {
-  width: 400px;
+.hero h1 {
+  font-size: 40px;
 }
 
-.hero button {
-  padding: 10px 20px;
-  background: #c9a74d;
-  border: none;
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+.hero p {
+  color: #94a3b8;
 }
 
 /* TICKER */
 .ticker {
-  background: black;
-  color: white;
+  background: #020617;
   padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* CARDS */
-.cards {
-  display: flex;
-  justify-content: space-around;
-  padding: 50px;
+.ticker span {
+  display: inline-block;
+  margin-right: 40px;
+  color: #22c55e;
 }
 
+/* DASHBOARD GRID */
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 40px;
+}
+
+/* CARD */
 .card {
-  width: 220px;
+  background: #020617;
   padding: 20px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  text-align: center;
+  border-radius: 15px;
+  border: 1px solid #1e293b;
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  border-color: #22c55e;
+}
+
+/* STOCK LIST */
+.stock {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e293b;
 }
 
 /* CHART */
-.chart-section {
-  padding: 50px;
-  text-align: center;
+canvas {
+  width: 100% !important;
 }
 
-/* FOOTER */
-footer {
-  background: #1f2d16;
-  color: white;
-  text-align: center;
-  padding: 20px;
+/* BUTTON */
+button {
+  background: #22c55e;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <h1>The Valuation Room</h1>
-  <ul>
-    <li>Market News</li>
-    <li>Investing Ideas</li>
-    <li>Stock Updates</li>
-    <li>Portfolio</li>
-  </ul>
+  <div>Dashboard</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div>
-    <h1>Understand the True Value</h1>
-    <p>Your hub for stock market insights, investing ideas and strategies.</p>
-    <button>Explore Markets</button>
-  </div>
-  <img src="https://undraw.co/api/illustrations/finance.svg" alt="illustration">
+  <h1>Track Markets Like a Pro</h1>
+  <p>Live NIFTY 50 insights, portfolio tracking & smart investing</p>
 </section>
 
 <!-- TICKER -->
-<div class="ticker">
-  <marquee>
-    NIFTY 50 ▲ 22,819 (+2.09%) | SENSEX ▲ 73,583 (+2.25%) | BANK NIFTY ▼ 52,274 (-2.67%)
-  </marquee>
+<div class="ticker" id="ticker"></div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+  <!-- CHART -->
+  <div class="card">
+    <h2>NIFTY 50 Trend</h2>
+    <canvas id="chart"></canvas>
+  </div>
+
+  <!-- STOCK LIST -->
+  <div class="card">
+    <h2>Top NIFTY Stocks</h2>
+    <div id="stocks"></div>
+  </div>
+
 </div>
 
-<!-- CARDS -->
-<section class="cards">
-  <div class="card" data-aos="fade-up">
-    <i class="fas fa-newspaper fa-2x"></i>
-    <h3>Stock Market News</h3>
-    <p>Latest financial updates</p>
-  </div>
-
-  <div class="card" data-aos="fade-up">
-    <i class="fas fa-lightbulb fa-2x"></i>
-    <h3>Investing Ideas</h3>
-    <p>Discover opportunities</p>
-  </div>
-
-  <div class="card" data-aos="fade-up">
-    <i class="fas fa-chart-line fa-2x"></i>
-    <h3>Stock Updates</h3>
-    <p>Daily market updates</p>
-  </div>
-
-  <div class="card" data-aos="fade-up">
-    <i class="fas fa-wallet fa-2x"></i>
-    <h3>Portfolio</h3>
-    <p>Manage investments</p>
-  </div>
-</section>
-
-<!-- CHART -->
-<section class="chart-section">
-  <h2>Market Trend</h2>
-  <canvas id="marketChart" width="400" height="200"></canvas>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 The Valuation Room</p>
-</footer>
-
-<!-- SCRIPTS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init();
+// SIMULATED LIVE DATA
+const stocks = [
+  {name: "Reliance", price: 2950},
+  {name: "TCS", price: 3800},
+  {name: "HDFC Bank", price: 1600},
+  {name: "Infosys", price: 1500},
+  {name: "ICICI Bank", price: 1050}
+];
 
-// Chart
-const ctx = document.getElementById('marketChart').getContext('2d');
+// UPDATE STOCK LIST
+function updateStocks() {
+  let html = "";
+  stocks.forEach(s => {
+    let change = (Math.random() * 20 - 10).toFixed(2);
+    let color = change >= 0 ? "#22c55e" : "red";
+    s.price += parseFloat(change);
+
+    html += `
+      <div class="stock">
+        <span>${s.name}</span>
+        <span style="color:${color}">
+          ₹${s.price.toFixed(2)} (${change})
+        </span>
+      </div>
+    `;
+  });
+
+  document.getElementById("stocks").innerHTML = html;
+}
+setInterval(updateStocks, 2000);
+updateStocks();
+
+// TICKER
+function updateTicker() {
+  let text = "";
+  stocks.forEach(s => {
+    text += `${s.name}: ₹${s.price.toFixed(2)} ▲ | `;
+  });
+  document.getElementById("ticker").innerHTML = `<span>${text}</span>`;
+}
+setInterval(updateTicker, 2000);
+
+// CHART
+const ctx = document.getElementById("chart").getContext("2d");
+
+const data = {
+  labels: ["1","2","3","4","5","6","7"],
+  datasets: [{
+    label: "NIFTY",
+    data: [22000, 22200, 22100, 22500, 22300, 22600, 22800],
+    borderWidth: 2
+  }]
+};
+
 new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Mon','Tue','Wed','Thu','Fri'],
-    datasets: [{
-      label: 'Market Trend',
-      data: [22000, 22500, 21800, 23000, 22800],
-      borderWidth: 2
-    }]
-  }
+  type: "line",
+  data: data
 });
 </script>
 
